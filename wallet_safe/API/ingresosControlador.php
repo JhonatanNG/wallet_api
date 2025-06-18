@@ -1,6 +1,6 @@
 <?php
 // archivo: controlador/ingresoscontrolador.php
-require_once __DIR__ . '/../modelo/bdingresos.php';
+require_once __DIR__ . '/../modelo/bdIngresos.php';
 
 class IngresosControlador {
     private $db;

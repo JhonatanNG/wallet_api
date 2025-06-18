@@ -2,5 +2,5 @@
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'wallet_safe');
 define('DB_USER', 'root');
-define('DB_PASS', ''); 
+define('DB_PASS', 'ywYqRJB5LZQ!'); 
 ?>

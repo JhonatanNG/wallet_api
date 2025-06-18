@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2025 at 03:54 AM
+-- Generation Time: Jun 18, 2025 at 10:56 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -136,6 +136,19 @@ CREATE TABLE `perfil` (
   `titular` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `token_notificaciones`
+--
+
+CREATE TABLE `token_notificaciones` (
+  `id` int(11) NOT NULL,
+  `perfil_id` int(11) NOT NULL,
+  `token` text NOT NULL,
+  `creado_en` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Indexes for dumped tables
 --
@@ -192,6 +205,13 @@ ALTER TABLE `perfil`
   ADD KEY `cuenta_id` (`cuenta_id`);
 
 --
+-- Indexes for table `token_notificaciones`
+--
+ALTER TABLE `token_notificaciones`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `perfil_id` (`perfil_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -238,6 +258,12 @@ ALTER TABLE `perfil`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `token_notificaciones`
+--
+ALTER TABLE `token_notificaciones`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -278,6 +304,12 @@ ALTER TABLE `ingresos`
 --
 ALTER TABLE `perfil`
   ADD CONSTRAINT `perfil_ibfk_1` FOREIGN KEY (`cuenta_id`) REFERENCES `cuenta` (`id`);
+
+--
+-- Constraints for table `token_notificaciones`
+--
+ALTER TABLE `token_notificaciones`
+  ADD CONSTRAINT `token_notificaciones_ibfk_1` FOREIGN KEY (`perfil_id`) REFERENCES `perfil` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

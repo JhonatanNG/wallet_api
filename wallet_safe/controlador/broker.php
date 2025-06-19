@@ -8,6 +8,10 @@ require_once '../API/detallePresupuestoControlador.php';// AÑADIDO
 
 $input = json_decode(file_get_contents('php://input'), true);
 $accion = $_GET['accion'] ?? '';
+$rawInput = file_get_contents('php://input');
+file_put_contents('log_frontend.txt', $rawInput . PHP_EOL, FILE_APPEND);
+
+
 
 error_log("Accion recibida: " . $accion);
 

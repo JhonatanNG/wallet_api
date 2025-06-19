@@ -22,6 +22,9 @@ class BDGastos {
             $stmt = $this->conexion->prepare($sql);
              $detalle_id = $detalle_id !== null ? $detalle_id : null;
               $automatico = $automatico !== null ? $automatico : 0;
+            if ($tipo === "Único" || $tipo === "unico") {
+            $tipo = "Variable";
+        }
                $tipo = $tipo !== null ? $tipo : "Variable";
 
             $stmt->execute([$monto, $automatico, $tipo, $rubro,  $descripcion, $perfil_id, $detalle_id]);
